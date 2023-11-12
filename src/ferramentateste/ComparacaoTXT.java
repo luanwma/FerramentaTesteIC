@@ -36,9 +36,9 @@ public class ComparacaoTXT {
     
     public void selectFileOne() throws IOException{
         String pastainicial = System.getProperty("user.dir");
+        qtdLinesOne = 0;
         
-        
-        String path = "D:\\Arquivos_IC\\Novos_testes\\exports_obj_recap";
+        String path = "D:\\Arquivos_IC\\Novos_testes\\zephyr novo";
         txtContentOne = new ArrayList<>();
         JFileChooser chooser = new JFileChooser(path);
         try{
@@ -76,10 +76,10 @@ public class ComparacaoTXT {
     
     public void selectFileTwo() throws IOException{
         String pastainicial = System.getProperty("user.dir");
+        qtdLinesTwo = 0;
         
-        
-        String path = "D:\\Arquivos_IC\\Novos_testes\\exports_obj_recap";
-        txtContentTwo = new ArrayList<>();
+        String path = "D:\\Arquivos_IC\\Novos_testes\\zephyr novo";
+        this.txtContentTwo = new ArrayList<>();
         JFileChooser chooser = new JFileChooser(path);
         try{
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
@@ -100,7 +100,7 @@ public class ComparacaoTXT {
             System.out.println("error "+error);
         }
         
-        BufferedReader ler=  new BufferedReader(new FileReader(fileOne));
+        BufferedReader ler=  new BufferedReader(new FileReader(fileTwo));
         int cont = 0;
         while(ler.ready()){
             String text = ler.readLine();
@@ -176,6 +176,7 @@ public class ComparacaoTXT {
             while(iteratorOne.hasNext()){
                 String textOne = iteratorOne.next();
                 countLinesOne++;
+                countLinesTwo = 0;
                 Iterator<String> iteratorTwo = txtContentTwo.iterator();
                 System.out.println("arq 1 "+countLinesOne);
                 while(iteratorTwo.hasNext()){
@@ -197,32 +198,13 @@ public class ComparacaoTXT {
                 }
             }
             
-            semelhanca = (countEquals / countLinesTwo ) *100;
-            System.out.println("semelhanca -> "+semelhanca);
-        /*
-        else{
-            
-            Iterator<String> iteratorOne = txtContentTwo.iterator();
-            while(iteratorOne.hasNext()){
-                String textOne = iteratorOne.next();
-                countLinesOne++;
-                System.out.println("arq 1 "+countLinesOne);
-                Iterator<String> iteratorTwo = txtContentOne.iterator();
-                while(iteratorTwo.hasNext()){
-                    String textTwo = iteratorTwo.next();
-                    countLinesTwo++;
-                    System.out.println("arq 2 "+countLinesTwo);
-                    int comp = testEquals(textOne, textTwo);
-                    if(comp < 0){
-                        break;
-                    }
-                    if(comp == 0){
-                        listEquals.add(textOne);
-                        countEquals++;
-                    }
-                }
-            }
-        } */
+            semelhanca = (countEquals / countLinesOne ) *100;
+            System.out.println("semelhanca -> "+semelhanca +"%");
+            listEquals.add("O primeiro arquivo possui "+qtdLinesOne+" de linhas");
+            listEquals.add("O segundo arquivo possui "+qtdLinesTwo+" de linhas");
+            listEquals.add("Ambos arquivos possuem  "+countEquals+" linhas iguais");
+            listEquals.add("Semelhanca de "+semelhanca+"%");
+      
         return listEquals;
         
     }

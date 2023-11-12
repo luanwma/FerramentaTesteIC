@@ -38,7 +38,7 @@ public class OrdenarTxt  {
         String pastainicial = System.getProperty("user.dir");
         
         
-        String path = "D:\\Arquivos_IC\\Novos_testes\\exports_obj_recap";
+        String path = "D:\\Arquivos_IC\\Novos_testes\\Metashape\\vaso_claro\\relatorio";
         txtConteudo = new ArrayList<>();
         JFileChooser chooser = new JFileChooser(path);
         try{

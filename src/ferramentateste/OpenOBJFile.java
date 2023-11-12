@@ -55,7 +55,7 @@ public class OpenOBJFile {
         String pastainicial = System.getProperty("user.dir");
         
         
-        String path = "D:\\Arquivos_IC\\Novos_testes\\exports_obj_recap";
+        String path = "D:\\Arquivos_IC\\Novos_testes\\Metashape\\vaso_claro\\relatorio";
         conteudoFile = new ArrayList<>();
         JFileChooser chooser = new JFileChooser(path);
         try{
@@ -70,7 +70,7 @@ public class OpenOBJFile {
             System.out.println("file name -> "+fileName + "palavras -> "+palavras[0].toString());
             
             this.filePath = file.getAbsolutePath();
-                System.out.println("path -> "+filePath);
+            System.out.println("path -> "+filePath);
             
             }
         }catch(NullPointerException error){
